@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div(class='form-wrapper')
+        p Enter the secret code to gain access to the club.
+        form(method="post") 
+            fieldset 
+                ul 
+                    li 
+                        label(for="codeword") *Secret Code:
+                        input(type="text" id='codeword' name='codeword')    
+            button Submit
+            if errors 
+                ul
+                   li(class='err')= 'Incorrect, guess again.'

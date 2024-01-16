@@ -50,3 +50,31 @@ exports.sign_up_post = [
     }
   }),
 ];
+
+exports.join_get = asyncHandler(async (req, res, next) => {
+  res.render("join_club", { title: "Join the Club" });
+});
+
+exports.join_post = [
+  body("codeword", "The codeword is more than one character long.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+
+  asyncHandler(async (req, res, next) => {
+    if (req.body.codeword !== "secret-code") {
+      res.render("join_club", {
+        title: "Join the Club",
+        errors: true,
+      });
+    } else {
+      const updatedUser = await User.findByIdAndUpdate(
+        "65a6abe50b7956657a0e8bbb",
+        {
+          membership_status: true,
+        }
+      );
+      res.redirect("/");
+    }
+  }),
+];
