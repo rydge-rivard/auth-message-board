@@ -68,12 +68,9 @@ exports.join_post = [
         errors: true,
       });
     } else {
-      const updatedUser = await User.findByIdAndUpdate(
-        "65a6abe50b7956657a0e8bbb",
-        {
-          membership_status: true,
-        }
-      );
+      const updatedUser = await User.findByIdAndUpdate(req.user._id, {
+        membership_status: true,
+      });
       res.redirect("/");
     }
   }),
