@@ -46,7 +46,8 @@ a {
   gap: 16px;
 }
 
-.main-index * {
+.main-index *,
+.main-index {
   text-align: center;
 }
 

@@ -4,6 +4,9 @@ block content
   main(class='main-index')  
     if(user) 
       h1= 'Welcome back ' + user.full_name
+      p Create a message and post it for other users to see. 
+      a(href="/feed/create_message") 
+        button New Message
     else
       h1= title
       p Sign up below to see who wrote these posts! 
