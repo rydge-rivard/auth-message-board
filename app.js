@@ -3,6 +3,10 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
 require("dotenv").config();
 
 const indexRouter = require("./routes/index");
@@ -17,6 +21,11 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(process.env.MONGO_DB);
 }
+
+app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

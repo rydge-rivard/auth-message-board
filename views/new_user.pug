@@ -6,12 +6,18 @@ block content
             fieldset 
                 ul 
                     li 
-                        label(for="") *First Name:
-                        input(type="text") 
+                        label(for="first_name") *First Name:
+                        input(type="text" id='first_name' name='first_name') 
                     li 
-                        label(for="") *Last Name:
-                        input(type="text") 
+                        label(for="last_name") *Last Name:
+                        input(type="text" id="last_name" name="last_name") 
                     li 
-                        label(for="") *Email:
-                        input(type="text") 
+                        label(for="email") *Email:
+                        input(type="email" id='email' name='email') 
+                    li 
+                        label(for="pwd") *Password:
+                        input(type="password" id='pwd' name='pwd')   
+                    li 
+                        label(for="pwd_confirm") *Confirm Password:
+                        input(type="password" id='pwd_confirm' name='pwd_confirm')       
             button Submit
