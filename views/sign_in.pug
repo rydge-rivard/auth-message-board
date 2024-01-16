@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div(class='form-wrapper')
+      form(action="/auth",method="post") 
+          h2(class='main-index') Login 
+          fieldset 
+              ul 
+                  li 
+                      label(for="username") *Username:
+                      input(type="email" id='username' name='username')   
+                  li 
+                      label(for="password") *Password:
+                      input(type="password" id='password' name='password')       
+          button Submit

@@ -2,8 +2,15 @@ extends layout
 
 block content
   main(class='main-index')  
-    h1= title
-    p Sign up below to see who wrote these posts! 
-    a(href="/feed/sign_up") 
-      button Sign Up
-  content
+    if(user) 
+      h1= 'Welcome back ' + user.full_name
+    else
+      h1= title
+      p Sign up below to see who wrote these posts! 
+      a(href="/feed/sign_up") 
+        button Sign Up
+      a(href="/auth") 
+        button Login
+
+      
+

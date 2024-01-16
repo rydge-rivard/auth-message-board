@@ -33,8 +33,8 @@ exports.sign_up_post = [
     const user = new User({
       username: req.body.email,
       password: hashedPwd,
-      first_name: req.body.last_name,
-      last_name: req.body.first_name,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       membership_status: false,
     });
 
