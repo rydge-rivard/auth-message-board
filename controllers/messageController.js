@@ -1,9 +1,19 @@
 const Message = require("../models/message");
+const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 exports.index = asyncHandler(async (req, res, next) => {
-  res.render("index", { title: "Secret Message Board", user: req.user });
+  const messages = await Message.find()
+    .sort({ time: -1 })
+    .populate("user")
+    .exec();
+
+  res.render("index", {
+    title: "Secret Message Board",
+    user: req.user,
+    messages: messages,
+  });
 });
 
 exports.create_message_get = asyncHandler(async (req, res, next) => {

@@ -14,4 +14,4 @@ UserSchema.virtual("full_name").get(function () {
   return this.first_name + " " + this.last_name;
 });
 
-module.exports = mongoose.model("users", UserSchema);
+module.exports = mongoose.model("User", UserSchema);

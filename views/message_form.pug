@@ -1,20 +1,29 @@
 extends layout
 
 block content
-    div(class='form-wrapper')
-        form(method="post") 
-            h2(class='main-index') New Message 
-            div(class='main-index') Type a message for everyone to see. Non-members will see the author as anonymous.
-            fieldset 
-                ul 
-                    li 
-                        label(for="title") *Title:
-                        input(type="text" id='title' name='title')       
-                    li 
-                        label(for="msg") *Message:
-                        input(type="text" id='msg' name='msg')   
-            button Submit
-            if errors 
-                ul
-                each error in errors 
-                    li(class='err')= '*' + error.msg
+    if(user) 
+        div(class='form-wrapper')
+            form(method="post") 
+                h2(class='main-index') New Message 
+                div(class='main-index') Type a message for everyone to see. Non-members will see the author as anonymous.
+                fieldset 
+                    ul 
+                        li 
+                            label(for="title") *Title:
+                            input(type="text" id='title' name='title')       
+                        li 
+                            label(for="msg") *Message:
+                            input(type="text" id='msg' name='msg')   
+                button Submit
+                if errors 
+                    ul
+                    each error in errors 
+                        li(class='err')= '*' + error.msg
+    else
+        main(class='main-index')  
+            h1 You are not logged in.
+            p Sign up or login below to create a new message. 
+            a(href="/feed/sign_up") 
+                button Sign Up
+            a(href="/auth") 
+                button Login
