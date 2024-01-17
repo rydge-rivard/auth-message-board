@@ -51,3 +51,15 @@ exports.create_message_post = [
     }
   }),
 ];
+
+exports.delete_message_get = asyncHandler(async (req, res, next) => {
+  const message = await Message.findById(req.params.id).populate("user").exec();
+
+  res.render("message_delete", { title: "Delete Message", message: message });
+});
+
+exports.delete_message_post = asyncHandler(async (req, res, next) => {
+  const message = await Message.findByIdAndDelete(req.body.messageId).exec();
+
+  res.redirect("/feed");
+});

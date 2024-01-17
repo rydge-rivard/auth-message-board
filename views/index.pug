@@ -16,16 +16,19 @@ block content
         button Login
     div(class='form-wrapper')
       if messages 
-                ul(class='msg-wrapper')
-                  each message in messages 
-                    li 
-                      h3= message.title 
-                      div= message.content
-                      if user && user.membership_status
-                        p= message.time
-                        p= message.user.first_name
-                      else 
-                        p Date Posted Hidden
-                        p Hidden Username 
+        ul(class='msg-wrapper')
+          each message in messages 
+            li 
+              h3= message.title 
+              div= message.content
+              if user && user.membership_status
+                p= message.time
+                p= message.user.first_name
+              else 
+                p Date Posted Hidden
+                p Hidden Username 
+              if user && user.admin
+                a(href='/feed/' + message._id + '/delete')
+                  button(class='warn-btn') Delete
       
 
