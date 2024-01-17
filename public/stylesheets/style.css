@@ -121,6 +121,7 @@ fieldset ul li {
   padding: 24px;
   background-color: #f6f6a9;
   border-radius: 18px;
+  min-width: clamp(250px, 300px, 400px);
 }
 
 .msg-wrapper {

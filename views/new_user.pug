@@ -8,19 +8,22 @@ block content
                 ul 
                     li 
                         label(for="first_name") *First Name:
-                        input(type="text" id='first_name' name='first_name' value= user === undefined ? '' : user.first_name) 
+                        input(type="text" id='first_name' name='first_name' required value= user === undefined ? '' : user.first_name) 
                     li 
                         label(for="last_name") *Last Name:
-                        input(type="text" id="last_name" name="last_name") 
+                        input(type="text" id="last_name" name="last_name" required) 
                     li 
                         label(for="email") *Email:
-                        input(type="email" id='email' name='email') 
+                        input(type="email" id='email' name='email' required) 
                     li 
                         label(for="pwd") *Password:
-                        input(type="password" id='pwd' name='pwd')   
+                        input(type="password" id='pwd' name='pwd' required)   
                     li 
                         label(for="pwd_confirm") *Confirm Password:
-                        input(type="password" id='pwd_confirm' name='pwd_confirm')       
+                        input(type="password" id='pwd_confirm' name='pwd_confirm' required)      
+                    li 
+                        label(for="admin") *Is Admin:
+                        input(type="checkbox" id='admin' name='admin')    
             button Submit
             if errors 
                 ul

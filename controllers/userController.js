@@ -29,6 +29,7 @@ exports.sign_up_post = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
+    const adminBool = req.body.admin === "on" ? "true" : "false";
     const hashedPwd = await bcrypt.hash(req.body.pwd, 10);
     const user = new User({
       username: req.body.email,
@@ -36,6 +37,7 @@ exports.sign_up_post = [
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       membership_status: false,
+      admin: adminBool,
     });
 
     if (!errors.isEmpty()) {
